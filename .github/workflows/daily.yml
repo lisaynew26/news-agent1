@@ -1,0 +1,39 @@
+name: Weekly News Agent每周新闻代理每周新闻代理每周新闻代理每周新闻代理每周新闻代理每周新闻代理每周新闻代理每周新闻代理每周新闻代理每周新闻代理每周新闻代理每周新闻代理每周新闻代理每周新闻代理每周新闻代理每周新闻代理
+
+on:于于:于于:于:于于于:于于:于于:于:于:
+  schedule:计划计划:计划计划:计划:计划:
+    - cron: '0 0 * * 1'  # 每周一 UTC 0 点（北京时间早8点）
+  workflow_dispatch:
+
+env:环境:环境:环境:
+  FORCE_JAVASCRIPT_ACTIONS_TO_NODE24: true
+
+jobs:作业:作业:作业:
+  build-and-deploy:构建并部署:构建并部署:构建并部署:
+    runs-on: ubuntu-latest运行于: 运行于: ubuntu-latest运行于: ubuntu-latest
+    permissions:权限权限:权限:
+      contents: write内容: 写入内容: 写内容: 写入内容: 写内容: 写入内容: 写内容: 写入内容: 写内容: 写入内容: 写内容: 写入内容: 写内容: 写入内容: 写内容: 写入
+    steps:步骤:步骤:步骤步骤:步骤:步骤:步骤:步骤:步骤:步骤:步骤步骤:步骤:步骤:步骤:
+    - name: Checkout    - 名称: 检checkout - 名称: 检checkout - 名称: 检出    - name: 检出 - 名称: 检出
+      uses: actions/checkout@v4使用: aactions/checkout@v4使用: actions/checkout@v4使用: actions/checkout@v4使用: actions/checkout@v4
+
+    - name: Setup Python    - 名称: 设置 Python - 名称: 设置Python
+      uses: actions/setup-python@v5使用: actions/setup-python@v5使用: actions/setup-python@v5
+      with:与:
+        python-version: '3.10'python版本: '3.10'
+
+    - name: Install dependencies    - name: 安安装依赖 - 名称: 安装依赖 - name: 安装依赖    - name: 安装依赖 - 名称: 安装依赖 - 名称: 安装依赖 - 名称: Install dependencies - 名称: 安安装依赖 - 名称: 安装依赖 - 名称: 安装依赖 - 名称: 安装依赖 - 名称: 安装依赖-name:安装依赖-名称:安装依赖-名称:安装依赖-名称:安装依赖-名称:安装依赖    - name安装依赖    - name安装依赖-名称:安装依赖 - 名称安装依赖 - 名称安装依赖-名称:安装依赖    - 名称安安装依赖 - 名称安装依赖 - 名称安装依赖    - 名称安装依赖 - 名称安装依赖 - 名称安装依赖 - 名称安装依赖-名称安装依赖-名称安装依赖    - 名称安装依赖    - 名称安装依赖
+      run: pip install feedparser requests
+
+    - name: Run news agent    - 名称: 运新闻代理 - 名称: 运行新闻代理 - 名称: 运行新闻代理    - name: 运行新闻代理 - 名称: 运行新闻代理 - 名称: 运行新闻代理    - name: 运行新闻代理 - 名称: 运新闻代理 - 名称: 运行新闻代理 - 名称: 运行新闻代理 - name: 运行新闻代理 - 名称: 运行新闻代理 - 名称: 运行新闻代理 - 名称: 运行新闻代理
+      env:环境环境:
+        DEEPSEEK_API_KEY: ${{ secrets.DEEPSEEK_API_KEY }}
+      run: python news_agent.py运行: p运行python news_agent.py: python news_agent.py运行: p运行python news_agent.py: python news_agent.py运行: p运行python news_agent.py: python news_agent.py运行: p运行python news_agent.py: python news_agent.py运行: p运行python news_agent.py: python news_agent.py运行: p运行python news_agent.py: python news_agent.py运行: p运行python news_agent.py: python news_agent.py运行: p运行python news_agent.py: python news_agent.py运行: p运行python news_agent.py: python news_agent.py运行: p运行python news_agent.py: python news_agent.py运行: p运行python news_agent.py: python news_agent.py运行: python news_agent.py运行: python news_agent.py运行: python news_agent.py运行: python news_agent.py运行: python news_agent.py运行: python news_agent.py运行: python news_agent.py运行: python news_agent.py运行: python news_agent.py运行: python news_agent.py运行: python news_agent.py运行: python news_agent.py运行: python news_agent.py运行: python news_agent.py运行: python news_agent.py运行: python news_agent.py运行: python news_agent.py运行: python news_agent.py运行: python news_agent.py运行: python news_agent.py
+
+    - name: Deploy to Pages    - name: 部署到Pages - name: 部署到Pages - name:     部署到Pages - 名称:     - name: - 名称: - 名称: 部署到Pages - name:     部署到Pages - 名称:     部署到Pages - 名称:     部署到Pages - 名称:     - name: - 名称: - 名称: - 名称: - 名称: - 名称: 部署到Pages - name: 部署到Pages - 名称: 部署到Pages - 名称: 部署到Pages - 名称: 部署到Pages - 名称: 部署到Pages - 名称: 部署到Pages - 名称: 部署到Pages - 名称: 部署到Pages - name:     部署到Pages - 名称:     部署到Pages - 名称:     部署到Pages - 名称:     部署到Pages - 名称:     部署到Pages - 名称:     部署到Pages - 名称:     部署到Pages - 名称:     部署到Pages - 名称:     部署到Pages - 名称:     - name: - 名称: - 名称: - 名称: - 名称: - 名称: - 名称: - 名称: - 名称: - 名称: - 名称: - 名称: 部署到Pages - name: 部署到Pages - 名称: 部署到Pages - 名称: 部署到Pages - 名称: 部署到Pages - 名称: 部署到Pages - 名称: 部署到Pages - 名称: 部署到Pages - 名称: 部署到Pages - 名称: 部署到Pages - 名称: 部署到Pages - 名称: 部署到Pages - 名称: 部署到Pages - 名称: 部署到Pages - 名称: 部署到Pages - name: 部署到Pages - 名称: 部署到Pages - 名称: 部署到Pages - 名称: 部署到Pages - 名称: 部署到Pages - 名称: 部署到Pages - 名称: 部署到Pages - 名称: 部署到Pages - 名称: 部署到Pages - 名称: 部署到Pages    - name: 部署到Pages - 名称: -name:部署到Pages    - name部署到Pages    - 名称部署到Pages部署到Pages - 名称部署到Pages - 名称部署到Pages部署到Pages - 名称部署到Pages - 名称部署到Pages部署到Pages - 名称部署到Pages - 名称部署到Pages
+      uses: peaceiris/actions-gh-pages@v4
+      with:与:
+        github_token: ${{ secrets.GITHUB_TOKEN }}
+        publish_dir: ./
+        publish_branch: gh-pages
+        force_orphan: true
